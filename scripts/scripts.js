@@ -50,7 +50,6 @@ onSwitch.addEventListener('click', (event) => {
 
 // 2. Starting the game
 
-
 startButton.addEventListener('click', (event) => {
     if (on || win) {
         play();
@@ -111,21 +110,11 @@ function gameTurn() {
             if (order[flash] == 3) yellow();
             if (order[flash] == 4) blue();
             flash++; 
-        console.log(order)
+
+      
         }, 200); // A light will flash every 800ms (because of intervalId) but because of the 200ms it will stop for 200ms and then flash again.
     }
 }
-
-
-// function flashTower() { 
-//     if (noise) { // If it should make a noise (noise = true), it will make a noise
-//         let audio = document.getElementById('audio-flash');
-//         audio.play();
-//     }
-//     noise = true;
-//     towerSignal.style.backgroundColor = `${colours[order - 1]}`;
-//     towerSignal.style.boxShadow = `0px 0px 20px 10px ${colours[order -]}`;
-// }
 
 function green() { 
     if (noise) { // If it should make a noise (noise = true), it will make a noise
@@ -137,14 +126,6 @@ function green() {
     towerSignal.style.boxShadow = "0px 0px 20px 10px lightgreen";
 }
 
-// function oneRemote() {
-//     if (noise) {
-//         let button = document.getElementById('button');
-//         button.play();
-//     }
-//     noise = true;
-//     topLeft.style.backgroundColor = "lightgreen";
-// }
 
  function red() {
     if (noise) {
@@ -156,15 +137,6 @@ function green() {
     towerSignal.style.boxShadow = "0px 0px 20px 10px tomato";
 }
 
-// function twoRemote() {
-//     if (noise) {
-//         let button = document.getElementById('button');
-//         button.play();
-//     }
-//     noise = true;
-//     topRight.style.backgroundColor = "tomato";
-// }
-
 function yellow() {
     if (noise) {
         let audio = document.getElementById('audio-flash');
@@ -174,15 +146,6 @@ function yellow() {
     towerSignal.style.backgroundColor = "yellow";
     towerSignal.style.boxShadow = "0px 0px 20px 10px yellow";
 }
-
-// function threeRemote() {
-//     if (noise) {
-//         let button = document.getElementById('button');
-//         button.play();
-//     }
-//     noise = true;
-//     bottomLeft.style.backgroundColor = "yellow";
-// }
 
 function blue() {
     if (noise) {
@@ -194,15 +157,8 @@ function blue() {
     towerSignal.style.boxShadow = "0px 0px 20px 10px lightskyblue";
 }
 
-// function fourRemote() {
-//     if (noise) {
-//         let button = document.getElementById('button');
-//         button.play();
-//     }
-//     noise = true;
-//     bottomRight.style.backgroundColor = "lightskyblue";
-// }
 
+// Reset the colour after it flashed
 function clearColor() {
     topLeft.css('background-color', 'darkgreen');
     topRight.css('background-color', 'darkred');
@@ -212,11 +168,13 @@ function clearColor() {
     towerSignal.style.boxShadow = "none";
     }
 
+// Reset the colour on the remote after it flashed
 function clearIndicator() {
     indicator.style.backgroundColor = 'black';
     indicator.style.boxShadow = 'none';
 }
 
+// Flash the colour on the remote
 function flashColor() {
     topLeft.css('background-color', 'lightgreen');
     topRight.css('background-color', 'tomato');
@@ -235,11 +193,9 @@ function flashIndicatorWrong() {
 }
 
 
-
-// 4. Make the buttons clickable and take players input
+// 3. Make the buttons clickable, take players input and flash button when clicked
 
 $('.colour').click(function(){
-        console.log($(this).index());
         var index = $(this).index();
         playerOrder.push(index+1);
         check();
@@ -258,102 +214,7 @@ $('.colour').click(function(){
 
 
 
-
-        //1. Array with colours
-        //2. 
-
-//         if ($(this).hasClass('topleft')) {
-//             playerOrder.push(index);
-//             check();
-//             oneRemote(n);
-//         }
-
-//         else if ($(this).hasClass('topright')) {
-//             playerOrder.push(2);
-//             check();
-//             twoRemote();
-//         }
-
-//         else if ($(this).hasClass('bottomleft')) {
-//             playerOrder.push(3);
-//             check();
-//             threeRemote();
-//         }
-
-//         else if ($(this).hasClass('bottomright')) {
-//             playerOrder.push(4);
-//             check();
-//             fourRemote();
-
-//             if(!win) { // If the player has not won (=is not on the 7th turn)
-//                 setTimeout (() => {
-//                     clearColor();
-//                 }, 300);
-//         }
-// };
-
-    
-
-
-
-
-
-
-// topLeft.addEventListener('click', (event) => { 
-//     if (on) {
-//         playerOrder.push(1); // Add one to the playerOrder array
-//         check(); 
-//         oneRemote(); 
-//         if(!win) { // If the player has not won (=is not on the 7th turn)
-//             setTimeout (() => {
-//                 clearColor();
-//             }, 300);
-//         }
-//     }
-// })
-
-// topRight.addEventListener('click', (event) => {
-//     if (on) {
-//         playerOrder.push(2); 
-//         check();
-//         twoRemote();
-//         if(!win) {
-//             setTimeout (() => {
-//                 clearColor();
-//             }, 300);
-//         }
-//     }
-// })
-
-// bottomLeft.addEventListener('click', (event) => {
-//     if (on) {
-//         playerOrder.push(3); 
-//         check();
-//         threeRemote();
-//         if(!win) {
-//             setTimeout (() => {
-//                 clearColor();
-//             }, 300);
-//         }
-//     }
-// })
-
-// bottomRight.addEventListener('click', (event) => {
-//     if (on) {
-//         playerOrder.push(4); 
-//         check();
-//         fourRemote();
-//         if(!win) {
-//             setTimeout (() => {
-//                 clearColor();
-//             }, 300);
-//         }
-//     }
-// })
-
-
-
-// 5. Check if the player got it right
+// 4. Check if the player got it right
 
 function check() {
     if (playerOrder[playerOrder.length - 1] !== order[playerOrder.length - 1]) // Check if the last colour the player clicked equals the colour the computer flashed 
@@ -390,6 +251,8 @@ function check() {
       intervalId = setInterval(gameTurn, 800);
       }800;
   }
+
+
   
 function winGame() { //Player wins the game
     flashColor();
@@ -406,7 +269,7 @@ function winGame() { //Player wins the game
     setTimeout(() => {
         fireworksTwo.style.display = 'block'
     },3000);
-    let fireworksSound = document.getElementById('fireworksSound_3');
+    let fireworksSound = document.getElementById('fireworksSound');
         fireworksSound.play(); 
     on = false;
     win = true;
