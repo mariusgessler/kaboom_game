@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KABOOM!</title>
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Special+Elite&display=swap" rel="stylesheet">
+    
+    <audio id='fireworksSound_1'>
+        <source src="sounds/fireworks_1.mp3"></source>
+    </audio>
+    <audio id='fireworksSound_2'>
+        <source src="sounds/fireworks_2.mp3"></source>
+    </audio>
+
+    <audio id='fireworksSound_3'>
+        <source src="sounds/fireworks_3.mp3"></source>
+    </audio>
+
+    <audio id='correct'>
+            <source src="sounds/correct.mp3"></source>
+        </audio>
+
+    <audio id='wrong'>
+            <source src="sounds/wrong.mp3"></source>
+    </audio>
+
+    <audio id='audio-flash'>
+            <source src="sounds/audio-flash.mp3"></source>
+    </audio>
+
+
+    <audio id='button'>
+            <source src="sounds/button.mp3"></source>
+    </audio>
+
+    <audio id='error'>
+            <source src="sounds/error.mp3"></source>
+    </audio>
+
+
+
+
+</head>
+
+<body>
+
+    <div class="fireworks">    
+        <div id="fireworks_1">
+                <img src="images/firework-game_fireworks_2.png" alt="Multiple fireworks">
+        </div> 
+        <div id="fireworks_2">
+                <img src="images/firework-game_fireworks_3.png" alt="All the fireworks">
+        </div> 
+    </div>
+
+    <div id="tower-signal"></div>
+
+    <div class="remote_control">
+        <div class="remote_top"> 
+                <div class="on-switch">
+                        <input type="checkbox" class="toggle" id="on-switch" name="on-switch">
+                        <label for="on-switch"></label>
+                </div>
+                <div id="indicator"></div>  
+        </div>
+        <button class="start-btn" id="start-btn">START</button>
+        <div id="control-buttons">
+             <div class="colour topleft"></div>
+             <div class="colour topright"></div>
+             <div class="colour bottomleft"></div>
+             <div class="colour bottomright"></div>
+        </div>   
+
+    </div>
+
+    <div class="text">
+        <div id="instructions">
+             <p>1. When you're ready, turn on the remote and press the START-button.<br> <br>2. Watch for your colleague's signals from the tower and click the correct colour on the remote. <br> <br>3. Get all the colors right to set off the fireworks!</p>
+        </div>
+
+        <div class="live_instructions"></div>
+        <p id="live_instructions">Turn on the remote!</p>
+        </div>
+    </div>
+    
+
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="scripts/scripts.js"></script>
+
+</html>

@@ -1,0 +1,213 @@
+/*=== Eric Meyer Resets ===*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+
+
+
+
+body{
+    background-image: url('../images/firework-game_background.png');
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+/* === Remote Control === */
+
+.remote_control {
+    height: 200px; 
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 1em;
+}
+
+.remote_top {
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
+}
+
+button {
+    font-size: 1em;
+    background-color: lightgray;
+    color: black;
+    border: 2px solid rgb(14, 13, 13);   
+    font-family: 'Press Start 2P', cursive;
+    padding: 5px;
+    width: 130px;
+    outline: none;
+ 
+}
+
+button:active {
+    box-shadow: inset 0px 0px 5px black; 
+}
+
+#control-buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 5px;
+    grid-column-gap: 5px;
+    max-width: 100%;
+    border-radius: 8px;
+    background-color:rgb(32, 32, 32) ;
+}
+
+.topleft {
+    height: 60px;
+    width: 60px;
+    border-radius: 8px;
+    background: darkgreen;
+    border: 3px solid black;
+}
+
+.topright {
+    height: 60px;
+    width: 60px;
+    border-radius: 8px;
+    background: darkred;
+    border: 3px solid black;
+}
+
+.bottomleft {
+    height: 60px;
+    width: 60px;
+    border-radius: 8px;
+    background: goldenrod;
+    border: 3px solid black;
+}
+
+.bottomright {
+    height: 60px;
+    width: 60px;
+    border-radius: 8px;
+    background: darkblue;
+    border: 3px solid black;
+}
+
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+.on-switch {
+    width: 40px;
+    height: 10px;
+    background: #555;
+    border-radius: 3px;
+}
+
+.on-switch label {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    background:rgba(218, 85, 85, 0.801);
+}
+
+.on-switch input[type=checkbox]:checked + label {
+    left: 27px;
+    background-color:rgb(37, 102, 53); 
+}
+
+#indicator {
+    background-color: black;
+    box-shadow: none;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+}
+
+
+/* === END - Remote Control === */
+
+
+
+#tower-signal {
+    height: 6px;
+    width: 6px;
+    background-color: none;
+    box-shadow: none;
+    border-radius: 100%; 
+    position: relative;
+    top: 20vh;
+    left: 23vw;
+
+}
+
+.text {
+    font-family: 'Special Elite';
+    color: white;
+    margin: 15px;
+}
+
+#instructions {
+    width: 250px;
+}
+
+.live_instructions {
+    margin-top: 40px;
+}
+
+ #fireworks_1 {
+    display: none;
+    position: fixed;
+    animation: fadein 2s;
+    width: 1920px;
+} 
+
+#fireworks_2  {
+    display: none;
+} 
+
+#fireworks_3  {
+    display: none;
+}
+
+#fireworks_2 img {
+    position: fixed;
+    animation: fadein 2s;
+    width: 100%;
+}
+
+#fireworks_3 img {
+    position: fixed;
+    animation: fadein 2s;
+    width: 100%;
+}
+
+@keyframes fadein{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
